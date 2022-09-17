@@ -24,7 +24,7 @@
       <!-- TODO: Buatlah sebuah input bertipe text dengan id todo-input -->
       <input type="text" id="todo-input" />
       <!-- TODO: Buatlah sebuah button dengan id todo-submit -->
-      <button id="todo-submit">Submit</button>
+      <button id="todo-submit" type="button">Submit</button>
       <!-- Section output -->
       <!-- TODO: Buatlah sebuah <ul> dengan id todo-output -->
       <ul id="todo-output"></ul>
@@ -42,7 +42,7 @@
       // Jangan ubah cara deklarasi fungsinya, cukup isi saja
       function fnClickHandler(toDoItem) {
         const list = document.createElement("li");
-        list.innerHTML = toDoItem;
+        list.innerHTML = input.value;
         output.appendChild(list);
 
         input.value = "";
@@ -50,14 +50,13 @@
 
       // TODO: register event onclick / addEventListener untuk button
       // akan menjalankan fungsi fnClickHandler
-      button.addEventListener("click", () => fnClickHandler(input.value));
+      button.addEventListener("click", fnClickHandler);
 
       // TODO: register event onkeypress / addEventListener untuk input
       // sehingga saat di input ditekan enter akan menjalankan fungsi fnClickHandler juga
       input.addEventListener("keypress", (e) => {
-        if (e.keyCode == 13) {
-          e.preventDefault();
-          fnClickHandler(input.value);
+        if (e.key === 'Enter') {
+          fnClickHandler();
         }
       });
     </script>
