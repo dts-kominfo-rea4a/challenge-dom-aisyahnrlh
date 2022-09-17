@@ -42,20 +42,21 @@
       // Jangan ubah cara deklarasi fungsinya, cukup isi saja
       function fnClickHandler(toDoItem) {
         const list = document.createElement("li")
-        list.innerHTML = input.value
+        list.innerHTML = toDoItem
         output.appendChild(list)
+
         input.value = ""
       }
 
       // TODO: register event onclick / addEventListener untuk button
       // akan menjalankan fungsi fnClickHandler
-      button.addEventListener('click', fnClickHandler)
+      button.addEventListener('click', () => fnClickHandler(input.value))
 
       // TODO: register event onkeypress / addEventListener untuk input
       // sehingga saat di input ditekan enter akan menjalankan fungsi fnClickHandler juga
       input.addEventListener('keypress', (e) => {
         if (e.keyCode === 13) {
-          fnClickHandler()
+          fnClickHandler(input.value)
         }
       })
     </script>
